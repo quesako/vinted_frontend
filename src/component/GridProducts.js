@@ -1,4 +1,5 @@
 import {HeartIcon} from "@heroicons/react/24/outline";
+import {Link} from "react-router-dom";
 
 const GridProducts = ({data}) => {
     return (
@@ -23,10 +24,11 @@ const GridProducts = ({data}) => {
                         </div>
                         <div className="mt-4 flex justify-between items-start">
                             <div>
-                                <h3 className="text-sm text-gray-700"><a href="#toto">
-                                    <span aria-hidden="true" className="absolute inset-0"/>
-                                    {product.product_price}€
-                                </a>
+                                <h3 className="text-sm text-gray-700">
+                                     <Link to={`/offer/${product._id}`}>
+                                        <span aria-hidden="true" className="absolute inset-0"/>
+                                        {product.product_price}€
+                                    </Link>
                                 </h3>
                                 <p className="text-sm text-zinc-400">xxl / 44 / 16</p><p
                                 className="text-sm text-zinc-400">{product.product_details[0].MARQUE}</p>
