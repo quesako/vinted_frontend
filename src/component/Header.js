@@ -1,5 +1,5 @@
 import logo from "../assets/logo.svg"
-import {QuestionMarkCircleIcon} from "@heroicons/react/24/outline";
+import {ChevronDownIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon} from "@heroicons/react/24/outline";
 
 const Header =()=>{
     return(
@@ -16,11 +16,16 @@ const Header =()=>{
                     </a>
 
                     <div className="ml-3 bg-slate-400/10 rounded-md py-1 px-3 flex items-center hover: bg-slate-400/20 flex-1">
-                        <span className="border-r text-sm border-zinc-500  text-zinc-600 pr-2">Articles</span>
-                        <div className={"w-full"}>
+                        <span className="border-r text-sm border-zinc-300  text-zinc-600 pr-2 flex items-center justify-center">
+                            <span>Articles</span>
+                              <ChevronDownIcon className={"h-4 w-4 text-zinc-600 ml-1"}></ChevronDownIcon>
+                        </span>
+                        <div className={"w-full ml-2 flex items-center justify-center"}>
                             <label htmlFor="email" className="sr-only">
                                 Search
                             </label>
+                            <MagnifyingGlassIcon className={"h-4 w-4 text-zinc-600 ml-1"}></MagnifyingGlassIcon>
+
                             <input
                                 type="search"
                                 name="search"
@@ -35,7 +40,7 @@ const Header =()=>{
                             <ul className="flex space-x-2">
                                 <li>
                                     <a className="btn btn-sm btn-primary"
-                                       href="#toto">Se connecter | s'inscrire</a></li>
+                                       href="#toto">S'inscrire | Se connecter</a></li>
                                 <li>
                                     <a href="#toto"
                                        className="btn btn-sm btn-primary-outline">Vends tes articles</a>
@@ -46,7 +51,12 @@ const Header =()=>{
                                     </a>
                                 </li>
                                 <li  className="flex items-center justify-center">
-                                    <a className=" text-zinc-600" href="#toto">fr</a>
+                                    <a className="flex items-center justify-center text-zinc-600" href="#toto">
+                                        <span>fr</span>
+                                        <ChevronDownIcon className={"h-4 w-4 text-zinc-600 ml-1"}></ChevronDownIcon>
+
+                                    </a>
+
                                 </li>
                             </ul>
                         </nav>
