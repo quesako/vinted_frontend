@@ -1,4 +1,3 @@
-import Header from "../component/Header";
 import Hero from "../component/Hero";
 import FeaturedProducts from "../component/FeaturedProducts";
 import GridProducts from "../component/GridProducts";
@@ -40,7 +39,6 @@ const HomePage =() =>{
 
     return(
         <>
-            <Header/>
             <Hero/>
             {!isFeaturedLoading ? (
                     <FeaturedProducts data={featuredData}></FeaturedProducts>
@@ -48,12 +46,11 @@ const HomePage =() =>{
                 <p> chargement en cour...</p>
             )}
             {!isGridLoading ? (
-                <GridProducts data={gridData}></GridProducts>
+                <GridProducts data={gridData}>
+                </GridProducts>
             ):(
                 <p> chargement en cour...</p>
             )}
-
-
         </>
     )
 }

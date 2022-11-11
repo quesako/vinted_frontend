@@ -1,10 +1,17 @@
 import logo from "../assets/logo.svg"
 import {ChevronDownIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon} from "@heroicons/react/24/outline";
+import {Link} from "react-router-dom";
+import Cookies from "js-cookie";
 
-const Header =()=>{
+const Header =({token, setToken})=>{
+
+    const handleClick = async() => {
+        Cookies.remove("userToken");
+        setToken(null);
+    }
+
     return(
-    <div
-        className="sticky top-0 z-40 w-full lg:z-50 lg:border-b lg:border-slate-900/10 bg-white/95">
+    <div className="sticky top-0 z-40 w-full lg:z-50 lg:border-b lg:border-slate-900/10 bg-white/95">
         <div className="max-w-7xl mx-auto">
               <div
                 className="py-1 border-b border-slate-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
@@ -38,9 +45,26 @@ const Header =()=>{
                     <div className="relative flex items-center ml-12">
                         <nav>
                             <ul className="flex space-x-2">
-                                <li>
-                                    <a className="btn btn-sm btn-primary"
-                                       href="#toto">S'inscrire | Se connecter</a></li>
+                                { token ? (
+                                    <li>
+                                        <button onClick={handleClick} className="btn btn-sm btn-primary"
+                                        >Déconnexion</button>
+                                    </li>
+
+                                    ) : (
+                                        <>
+                                            <li>
+                                                <Link to={"/signin"} className="btn btn-sm btn-primary"
+                                                >Se connecter</Link>
+                                            </li>
+                                            <li>
+                                                <Link to={"/signup"} className="btn btn-sm btn-primary"
+                                                >S'inscrire</Link>
+                                            </li>
+                                        </>
+                                    )
+                                }
+
                                 <li>
                                     <a href="#toto"
                                        className="btn btn-sm btn-primary-outline">Vends tes articles</a>

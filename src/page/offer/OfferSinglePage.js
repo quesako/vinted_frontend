@@ -27,7 +27,6 @@ const OfferSinglePage =() =>{
 
     return(
         <>
-            <Header/>
             {!isSingleLoading ? (
                 <ProductDetails data={singleData}/>
             ):(
