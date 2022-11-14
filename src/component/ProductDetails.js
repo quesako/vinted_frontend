@@ -75,7 +75,7 @@ const ProductDetails =({data})=> {
                                     return (
                                         <p className="flex align-items justify-between text-xs text-zinc-400 my-1">
                                             <span className={"uppercase"}>{Object.keys(detail)}</span>
-                                            <span className={"text-zinc-600"}>{detail[Object.keys(detail)]}</span>
+                                            <span className={"text-zinc-600 ml-2 truncate"}>{detail[Object.keys(detail)]}</span>
                                         </p>
                                     )
                                 })}
