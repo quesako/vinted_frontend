@@ -18,8 +18,12 @@ const ProductDetails =({data})=> {
     let userNameInitial = "?"
 
     if(data.owner) {
-        avatarUrl = data.owner?.account?.avatar.secure_url;
         userName = data.owner?.account?.username
+        userNameInitial = userName.charAt(0)
+    }
+    if(data.owner.account.avatar) {
+        avatarUrl = data.owner.account?.avatar.secure_url;
+
         userNameInitial = userName.charAt(0)
     }
 
@@ -29,14 +33,14 @@ const ProductDetails =({data})=> {
                 <div className="lg:grid lg:grid-cols-4 lg:items-start lg:gap-x-8 pt-12">
                     <div className="col-span-3 flex flex-col-reverse">
                         {
-                            data.product_pictures ? (
+                            data.product_pictures.length !==0 ? (
                                 <Carousel responsive={options}>
                                     {data.product_pictures.map((picture,index)=>{
                                         return  <img className={"w-full aspect-[4/3] bg-zinc-200 object-cover"} src={picture.secure_url} alt={`Image ${index+1}  of "${data.product_name}"`}/>
                                     })}
                                 </Carousel>
                             ) :(
-                                <p>...aucune image...</p>
+                                <p>Aucun visuel n'est disponnnible pour cette offre</p>
                             )
                         }
 
