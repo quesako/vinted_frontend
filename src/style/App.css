@@ -35,6 +35,11 @@
         @apply transition-colors duration-75;
     }
 
+    .btn:disabled,
+    button[disabled] {
+        @apply opacity-50
+    }
+
     .btn-xs {
         @apply !px-2 !py-1  !text-xs;
     }

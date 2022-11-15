@@ -31,8 +31,15 @@ const Signin = ({ setToken }) => {
           password: password,
         }
       )
+      //Save token in the cookies
       Cookies.set('userToken', response.data.token)
+      //Save others user information in the cookies
+      Cookies.set('userId', response.data._id)
+      Cookies.set('userName', response.data.account.username)
+
+      //Save token in the cookies
       setToken(response.data.token)
+
       // navigate to home
       navigate('/')
     } catch (error) {
