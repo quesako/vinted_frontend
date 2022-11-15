@@ -28,7 +28,7 @@ const CheckoutForm = ({ product, token, amount, setPaymentCompleted }) => {
     // On envoie le token reçu depuis l'API Stripe
     // on securise la route
     const response = await axios.post(
-      'http://localhost:4000/payment',
+      'https://api--vinted-backend--lmfr2nmdlttd.code.run/payment',
       {
         stripeToken: stripeToken,
         productId: product.productId,

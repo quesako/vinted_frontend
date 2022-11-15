@@ -30,7 +30,7 @@ const PublishPage = ({ token }) => {
     console.log(formData)
     try {
       const response = await axios.post(
-        'http://localhost:4000/offer/publish',
+        'https://api--vinted-backend--lmfr2nmdlttd.code.run/offer/publish',
         formData,
         {
           headers: {
