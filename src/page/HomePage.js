@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const HomePage = ({ search }) => {
-  const [featuredData, setFeaturedData] = useState()
-  const [isFeaturedLoading, setIsFeaturedLoading] = useState(true)
-  const [gridData, setGridData] = useState()
-  const [isGridLoading, setIsGridLoading] = useState(true)
+  const [popularsData, setPopularsData] = useState()
+  const [isLoadingPopularsData, setIsLoadingPopularsData] = useState(true)
+  const [lastData, setLastData] = useState()
+  const [isLoadingLastData, setIsLoadingLastData] = useState(true)
+  const [myData, setMyData] = useState()
+  const [isLoadingMyData, setIsLoadingMyData] = useState(true)
 
-  // Use for display popular offers
+  /* Use Api reacteur to display populars offers */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,43 +20,73 @@ const HomePage = ({ search }) => {
           'https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=5'
         )
         console.log(response.data)
-        setFeaturedData(response.data)
-        setIsFeaturedLoading(false)
+        setPopularsData(response.data)
+        setIsLoadingPopularsData(false)
       } catch (error) {
-        console.log(error.response) // contrairement au error.message d'express
+        console.log(error.response)
       }
     }
     fetchData()
   }, [search])
 
-  // Use for display grid offers
+  /* Use Api reacteur to display populars offers */
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           'https://lereacteur-vinted-api.herokuapp.com/offers?page=2&limit=12'
         )
-        console.log(response.data)
-        setGridData(response.data)
-        setIsGridLoading(false)
+        setLastData(response.data)
+        setIsLoadingLastData(false)
       } catch (error) {
-        console.log(error.response) // contrairement au error.message d'express
+        console.log(error.response)
       }
     }
     fetchData()
   }, [])
 
+  /* Use My API to display populars offers */
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'https://lereacteur-vinted-api.herokuapp.com/offers?page=2&limit=12'
+        )
+        setMyData(response.data)
+        setIsLoadingMyData(false)
+      } catch (error) {
+        console.log(error.response)
+      }
+    }
+    fetchData()
+  }, [])
   return (
     <>
       <Hero />
 
-      {!isFeaturedLoading ? (
-        <FeaturedProducts data={featuredData}></FeaturedProducts>
+      {!isLoadingPopularsData ? (
+        <FeaturedProducts
+          data={popularsData}
+          title={'Articles populaires (api reacteur)'}
+        ></FeaturedProducts>
       ) : (
         <p> chargement en cour...</p>
       )}
-      {!isGridLoading ? (
-        <GridProducts data={gridData}></GridProducts>
+
+      {!isLoadingLastData ? (
+        <GridProducts
+          data={lastData}
+          title={'Derniers articles (api reacteur)'}
+        ></GridProducts>
+      ) : (
+        <p> chargement en cour...</p>
+      )}
+
+      {!isLoadingMyData ? (
+        <GridProducts
+          data={myData}
+          title={'Derniers articles (api reacteur)'}
+        ></GridProducts>
       ) : (
         <p> chargement en cour...</p>
       )}

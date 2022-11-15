@@ -50,7 +50,7 @@ const ProductDetails = ({ data }) => {
             {/* use flex order to display a correct tag strucure for seo */}
             <div className="order-3 border-t py-3">
               <h1>{data.product_name}</h1>
-              <p className={'text-sm text-zinc-400'}>
+              <p className={'text-color-body-light text-sm'}>
                 {data.product_description}
               </p>
               <div className={'mt-4 flex items-center'}>
@@ -75,9 +75,9 @@ const ProductDetails = ({ data }) => {
               <div className={'flex flex-col'}>
                 {data.product_details.map((detail) => {
                   return (
-                    <p className="align-items my-1 flex justify-between text-xs text-zinc-400">
+                    <p className="align-items text-color-body-light my-1 flex justify-between text-xs">
                       <span className={'uppercase'}>{Object.keys(detail)}</span>
-                      <span className={'ml-2 truncate text-zinc-600'}>
+                      <span className={'text-color-body ml-2 truncate'}>
                         {detail[Object.keys(detail)]}
                       </span>
                     </p>
@@ -85,7 +85,7 @@ const ProductDetails = ({ data }) => {
                 })}
               </div>
             </div>
-            <p className="order-1 text-xl tracking-tight text-zinc-600">
+            <p className="text-color-body-ultra order-1 text-xl tracking-tight">
               {data.product_price}€
             </p>
           </div>

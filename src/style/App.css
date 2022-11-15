@@ -5,9 +5,28 @@
 
 @layer components {
 
-    .container{
+    .container {
         @apply max-w-7xl mx-auto;
     }
+
+    /*text color*/
+    .text-color-body {
+        @apply text-zinc-600
+    }
+
+    .text-color-body-light {
+        @apply text-zinc-400
+    }
+
+    .text-color-body-ultra {
+        @apply text-zinc-700
+    }
+
+    .text-color-accent {
+        @apply text-teal-700
+    }
+
+    /*button*/
     .btn {
         @apply shadow-none;
         @apply inline-flex items-center whitespace-nowrap;
@@ -32,12 +51,13 @@
         @apply !px-4 !py-4  !text-lg;
     }
 
-    .btn-primary{
+    .btn-primary {
         @apply text-white;
         @apply bg-teal-700;
         @apply border border-teal-700
     }
-    .btn-primary-outline{
+
+    .btn-primary-outline {
         @apply text-teal-700;
         @apply bg-transparent;
         @apply border border-teal-700

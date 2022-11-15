@@ -15,6 +15,7 @@ function App() {
   const [values, setValues] = useState([1, 1000])
   const [search, setSearch] = useState('')
 
+  /* @todo bonus*/
   const [enabledFilteringByPrice, setEnabledFilteringByPrice] = useState(false)
 
   return (

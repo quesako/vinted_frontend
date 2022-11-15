@@ -5,7 +5,7 @@ const GridProducts = ({ data, title, showMore }) => {
   return (
     <div className={'container mt-12'}>
       <div className={'flex items-center justify-between'}>
-        <h2 className="text-2xl text-zinc-900">{title}</h2>
+        <h2 className="text-color-body-ultra text-2xl">{title}</h2>
         {showMore && (
           <a className={'text-teal-600'} href={'#toto'}>
             Voir tout
@@ -28,7 +28,7 @@ const GridProducts = ({ data, title, showMore }) => {
                   ) : (
                     <p
                       className={
-                        'flex h-full w-full items-center justify-center text-center text-zinc-300'
+                        'text-color-body-light flex h-full w-full items-center justify-center text-center'
                       }
                     >
                       Aucun visuel
@@ -37,19 +37,23 @@ const GridProducts = ({ data, title, showMore }) => {
                 </div>
                 <div className="mt-4 flex items-start justify-between">
                   <div>
-                    <h3 className="text-sm text-gray-700">
+                    <h3 className="text-color-body-ultra text-sm">
                       <Link to={`/offer/${product._id}`}>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {product.product_price}€
                       </Link>
                     </h3>
-                    <p className="text-sm text-zinc-400">xxl / 44 / 16</p>
-                    <p className="text-sm text-zinc-400">
+                    <p className="text-color-body-light text-sm">
+                      xxl / 44 / 16
+                    </p>
+                    <p className="text-color-body-light text-sm">
                       {product.product_details[0].MARQUE}
                     </p>
                   </div>
                   <p className="flex items-center text-sm font-medium text-gray-900 ">
-                    <HeartIcon className={'h-4 w-4 text-zinc-600'}></HeartIcon>
+                    <HeartIcon
+                      className={'text-color-body h-4 w-4'}
+                    ></HeartIcon>
                     <span>5</span>
                   </p>
                 </div>

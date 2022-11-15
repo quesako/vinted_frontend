@@ -1,5 +1,5 @@
 import GridProducts from '../component/GridProducts'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDebounce } from 'use-debounce'
 import { Switch } from '@headlessui/react'

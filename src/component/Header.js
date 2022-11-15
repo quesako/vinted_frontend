@@ -14,22 +14,20 @@ const Header = ({ token, setToken, search, setSearch }) => {
 
   const navigate = useNavigate()
 
-  useEffect(
-    () => {
-      if (debouncedSearch) {
-        navigate('/search')
-      }
-    },
-    [debouncedSearch] // Only call effect if debounced search term changes
-  )
-
-  const handleChange = (ev) => {
-    setSearch(ev.target.value)
-  }
   const signOut = async () => {
     Cookies.remove('userToken')
     setToken(null)
   }
+
+  const handleChange = (ev) => {
+    setSearch(ev.target.value)
+  }
+
+  useEffect(() => {
+    if (debouncedSearch) {
+      navigate('/search')
+    }
+  }, [debouncedSearch])
 
   return (
     <div className="sticky top-0 z-40 w-full bg-white/95 lg:z-50 lg:border-b lg:border-slate-900/10">
@@ -45,10 +43,10 @@ const Header = ({ token, setToken, search, setSearch }) => {
             </a>
 
             <div className="hover: ml-3 flex flex-1 items-center rounded-md bg-slate-400/10 bg-slate-400/20 py-1 px-3">
-              <span className="flex items-center justify-center  border-r border-zinc-300 pr-2 text-sm text-zinc-600">
+              <span className="text-color-body flex items-center  justify-center border-r border-zinc-300 pr-2 text-sm">
                 <span>Articles</span>
                 <ChevronDownIcon
-                  className={'ml-1 h-4 w-4 text-zinc-600'}
+                  className={'text-color-body-light ml-1 h-4 w-4'}
                 ></ChevronDownIcon>
               </span>
               <div className={'ml-2 flex w-full items-center justify-center'}>
@@ -56,7 +54,7 @@ const Header = ({ token, setToken, search, setSearch }) => {
                   Search
                 </label>
                 <MagnifyingGlassIcon
-                  className={'ml-1 h-4 w-4 text-zinc-600'}
+                  className={'text-color-body-light ml-1 h-4 w-4'}
                 ></MagnifyingGlassIcon>
 
                 <input
@@ -65,7 +63,7 @@ const Header = ({ token, setToken, search, setSearch }) => {
                   type="search"
                   name="search"
                   id="search"
-                  className="focus:border-trans focus:ring-none block w-full w-full border-none bg-transparent p-1 text-sm text-zinc-600 "
+                  className="focus:border-trans focus:ring-none text-color-body-light block w-full w-full border-none bg-transparent p-1 text-sm "
                   placeholder="Rechercher des articles"
                 />
               </div>
@@ -117,18 +115,18 @@ const Header = ({ token, setToken, search, setSearch }) => {
                   <li className="flex items-center justify-center">
                     <a href="#toto">
                       <QuestionMarkCircleIcon
-                        className={'h-6 w-6 text-zinc-600'}
+                        className={'text-color-body-light h-6 w-6'}
                       ></QuestionMarkCircleIcon>
                     </a>
                   </li>
                   <li className="flex items-center justify-center">
                     <a
-                      className="flex items-center justify-center text-zinc-600"
+                      className="text-color-body-light flex items-center justify-center"
                       href="#toto"
                     >
                       <span>fr</span>
                       <ChevronDownIcon
-                        className={'ml-1 h-4 w-4 text-zinc-600'}
+                        className={'text-color-body-light ml-1 h-4 w-4'}
                       ></ChevronDownIcon>
                     </a>
                   </li>
