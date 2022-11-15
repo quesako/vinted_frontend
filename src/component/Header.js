@@ -38,7 +38,6 @@ const Header = ({ token, setToken, search, setSearch }) => {
               <span className="sr-only">Vinted</span>
               <img src={logo} alt={'logo vinted'} />
             </a>
-
             <div className="hover: ml-3 flex flex-1 items-center rounded-md bg-slate-400/10 bg-slate-400/20 py-1 px-3">
               <span className="text-color-body flex items-center  justify-center border-r border-zinc-300 pr-2 text-sm">
                 <span>Articles</span>

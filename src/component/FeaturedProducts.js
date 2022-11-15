@@ -1,5 +1,5 @@
 import { HeartIcon } from '@heroicons/react/24/outline'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const FeaturedProducts = ({ data, title }) => {
   return (

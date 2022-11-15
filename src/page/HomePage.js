@@ -22,7 +22,6 @@ const HomePage = ({ search }) => {
         const response = await axios.get(
           'https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=5'
         )
-        console.log(response.data)
         setPopularsData(response.data)
         setIsLoadingPopularsData(false)
       } catch (error) {

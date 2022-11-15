@@ -1,5 +1,4 @@
-import { Navigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import CheckoutForm from '../component/CheckoutForm'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
