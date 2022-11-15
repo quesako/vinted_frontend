@@ -3,6 +3,7 @@ import FeaturedProducts from '../component/FeaturedProducts'
 import GridProducts from '../component/GridProducts'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Loader from '../component/Loader'
 
 const HomePage = ({ search }) => {
   const [popularsData, setPopularsData] = useState()
@@ -70,7 +71,7 @@ const HomePage = ({ search }) => {
           title={'Articles populaires (api reacteur)'}
         ></FeaturedProducts>
       ) : (
-        <p> chargement en cour...</p>
+        <Loader></Loader>
       )}
 
       {!isLoadingLastData ? (
@@ -79,16 +80,16 @@ const HomePage = ({ search }) => {
           title={'Derniers articles (api reacteur)'}
         ></GridProducts>
       ) : (
-        <p> chargement en cour...</p>
+        <Loader></Loader>
       )}
 
       {!isLoadingMyData ? (
         <GridProducts
           data={myData}
-          title={'Derniers articles (api reacteur)'}
+          title={'Derniers articles (my api)'}
         ></GridProducts>
       ) : (
-        <p> chargement en cour...</p>
+        <Loader></Loader>
       )}
     </>
   )

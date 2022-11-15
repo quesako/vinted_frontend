@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useDebounce } from 'use-debounce'
 import { Switch } from '@headlessui/react'
 import { Range } from 'react-range'
+import Loader from '../component/Loader'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -134,7 +135,7 @@ const SearchPage = ({
           title={`Votre recherche pour "${debouncedSearch}"`}
         ></GridProducts>
       ) : (
-        <p> Chargement en cour...</p>
+        <Loader></Loader>
       )}
     </>
   )
