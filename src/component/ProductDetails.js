@@ -1,5 +1,6 @@
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+import { Link } from 'react-router-dom'
 
 const ProductDetails = ({ data }) => {
   // carousel option
@@ -88,6 +89,19 @@ const ProductDetails = ({ data }) => {
             <p className="text-color-body-ultra order-1 text-xl tracking-tight">
               {data.product_price}€
             </p>
+            <div className={'order-3 mt-8'}>
+              <Link
+                to={'/payment'}
+                state={{
+                  productTitle: data.product_name,
+                  productId: data._id,
+                  productPrice: data.product_price,
+                }}
+                className="btn btn-md btn-primary block text-center"
+              >
+                Acheter
+              </Link>
+            </div>
           </div>
         </div>
       </div>

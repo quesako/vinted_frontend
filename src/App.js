@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import { useState } from 'react'
 import SearchPage from './page/SearchPage'
 import PublishPage from './page/PublishPage'
+import PaymentPage from './page/PaymentPage'
 
 function App() {
   const [token, setToken] = useState(Cookies.get('userToken') || null)
@@ -48,6 +49,8 @@ function App() {
         <Route path="/publish" element={<PublishPage token={token} />} />
         {/*Offer*/}
         <Route path="/offer/:id" element={<OfferSinglePage />} />
+        {/*Payment with stripe*/}
+        <Route path="/payment" element={<PaymentPage token={token} />} />
       </Routes>
     </Router>
   )
