@@ -1,10 +1,8 @@
-import Header from '../../component/Header'
-
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 import axios from 'axios'
 import ProductDetails from '../../component/ProductDetails'
+import Loader from '../../component/Loader'
 
 const OfferSinglePage = () => {
   const { id } = useParams()
@@ -17,7 +15,6 @@ const OfferSinglePage = () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         )
-        console.log(response.data)
         setSingleData(response.data)
         setIsSingleLoading(false)
       } catch (error) {
@@ -28,13 +25,7 @@ const OfferSinglePage = () => {
   }, [])
 
   return (
-    <>
-      {!isSingleLoading ? (
-        <ProductDetails data={singleData} />
-      ) : (
-        <p> Chargement en cour...</p>
-      )}
-    </>
+    <>{!isSingleLoading ? <ProductDetails data={singleData} /> : <Loader />}</>
   )
 }
 

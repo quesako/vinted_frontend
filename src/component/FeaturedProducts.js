@@ -46,7 +46,7 @@ const FeaturedProducts = ({ data, title }) => {
           ))}
 
           <div className="group relative flex items-center justify-center bg-zinc-100">
-            <a href="#toto">
+            <a href="#more">
               <span aria-hidden="true" className="absolute inset-0" />
               voir plus
             </a>

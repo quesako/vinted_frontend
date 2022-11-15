@@ -31,13 +31,10 @@ const Header = ({ token, setToken, search, setSearch }) => {
 
   return (
     <div className="sticky top-0 z-40 w-full bg-white/95 lg:z-50 lg:border-b lg:border-slate-900/10">
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-4 border-b border-slate-900/10 py-1 lg:mx-0 lg:border-0 lg:px-8">
+      <div className="container">
+        <div className="border-b border-slate-900/10 py-1 lg:mx-0 lg:border-0 ">
           <div className="relative flex items-center">
-            <a
-              className="mr-3 mr-8 w-[2.0625rem] flex-none overflow-hidden md:w-auto"
-              href="/"
-            >
+            <a className="mr-3 w-[70px] flex-none overflow-hidden" href="/">
               <span className="sr-only">Vinted</span>
               <img src={logo} alt={'logo vinted'} />
             </a>

@@ -8,12 +8,14 @@ import Loader from '../component/Loader'
 const HomePage = ({ search }) => {
   const [popularsData, setPopularsData] = useState()
   const [isLoadingPopularsData, setIsLoadingPopularsData] = useState(true)
+
   const [lastData, setLastData] = useState()
   const [isLoadingLastData, setIsLoadingLastData] = useState(true)
+
   const [myData, setMyData] = useState()
   const [isLoadingMyData, setIsLoadingMyData] = useState(true)
 
-  /* Use Api reacteur to display populars offers */
+  /* Fetch Api reacteur to display populars offers */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,7 +32,7 @@ const HomePage = ({ search }) => {
     fetchData()
   }, [search])
 
-  /* Use Api reacteur to display populars offers */
+  /* Fetch Api reacteur to display populars offers */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,7 +48,7 @@ const HomePage = ({ search }) => {
     fetchData()
   }, [])
 
-  /* Use My API to display populars offers */
+  /* Fetch My API to display new published offers */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -61,6 +63,7 @@ const HomePage = ({ search }) => {
     }
     fetchData()
   }, [])
+
   return (
     <>
       <Hero />
@@ -77,7 +80,7 @@ const HomePage = ({ search }) => {
       {!isLoadingLastData ? (
         <GridProducts
           data={lastData}
-          title={'Derniers articles (api reacteur)'}
+          title={'Derniers articles (api Le Reacteur)'}
         ></GridProducts>
       ) : (
         <Loader></Loader>
@@ -86,7 +89,7 @@ const HomePage = ({ search }) => {
       {!isLoadingMyData ? (
         <GridProducts
           data={myData}
-          title={'Derniers articles (my api)'}
+          title={'Ajoutés récemment (my api)'}
         ></GridProducts>
       ) : (
         <Loader></Loader>

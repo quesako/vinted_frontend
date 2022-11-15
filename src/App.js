@@ -13,10 +13,10 @@ import PaymentPage from './page/PaymentPage'
 
 function App() {
   const [token, setToken] = useState(Cookies.get('userToken') || null)
-  const [values, setValues] = useState([1, 1000])
   const [search, setSearch] = useState('')
 
-  /* @todo bonus*/
+  /* @todo bonus filter*/
+  const [values, setValues] = useState([1, 1000])
   const [enabledFilteringByPrice, setEnabledFilteringByPrice] = useState(false)
 
   return (
@@ -39,7 +39,7 @@ function App() {
             <SearchPage
               search={search}
               values={values}
-              SetValues={setValues}
+              setValues={setValues}
               enabledFilteringByPrice={enabledFilteringByPrice}
               setEnabledFilteringByPrice={setEnabledFilteringByPrice}
             />

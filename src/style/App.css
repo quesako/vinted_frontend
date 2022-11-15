@@ -5,8 +5,9 @@
 
 @layer components {
 
+    /*layout*/
     .container {
-        @apply max-w-7xl mx-auto;
+        @apply max-w-7xl mx-auto px-4;
     }
 
     /*text color*/

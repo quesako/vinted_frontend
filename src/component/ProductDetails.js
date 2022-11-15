@@ -17,12 +17,13 @@ const ProductDetails = ({ data }) => {
   let userNameInitial = '?'
 
   if (data.owner) {
-    userName = data.owner?.account?.username
+    userName = data.owner.account?.username
     userNameInitial = userName.charAt(0)
-  }
-  if (data.owner.account.avatar) {
-    avatarUrl = data.owner.account?.avatar.secure_url
-    userNameInitial = userName.charAt(0)
+
+    if (data.owner.account?.avatar) {
+      avatarUrl = data.owner.account.avatar.secure_url
+      userNameInitial = userName.charAt(0)
+    }
   }
 
   return (
@@ -34,6 +35,7 @@ const ProductDetails = ({ data }) => {
               {data.product_pictures.map((picture, index) => {
                 return (
                   <img
+                    key={index}
                     className={'aspect-[4/3] w-full bg-zinc-200 object-cover'}
                     src={picture.secure_url}
                     alt={`Image ${index + 1}  of "${data.product_name}"`}
@@ -42,7 +44,12 @@ const ProductDetails = ({ data }) => {
               })}
             </Carousel>
           ) : (
-            <p>Aucun visuel n'est disponible pour cette offre</p>
+            <div className={'p-4'}>
+              <p className={'text-color-body-light text-center text-xs'}>
+                Aucun visuel n'est disponible pour cette offre...Ça pourrait
+                être une bonne surprise ou pas !
+              </p>
+            </div>
           )}
         </div>
         <div className="flex flex-col bg-white p-4">
@@ -72,9 +79,12 @@ const ProductDetails = ({ data }) => {
           <h2 className="sr-only">Product detail</h2>
           <div className="order-2 py-3 ">
             <div className={'flex flex-col'}>
-              {data.product_details.map((detail) => {
+              {data.product_details.map((detail, index) => {
                 return (
-                  <p className="align-items text-color-body-light my-1 flex justify-between text-xs">
+                  <p
+                    key={index}
+                    className="align-items text-color-body-light my-1 flex justify-between text-xs"
+                  >
                     <span className={'uppercase'}>{Object.keys(detail)}</span>
                     <span className={'text-color-body ml-2 truncate'}>
                       {detail[Object.keys(detail)]}
@@ -103,7 +113,6 @@ const ProductDetails = ({ data }) => {
         </div>
       </div>
     </div>
-    /*<p>{data.product_name}</p>*/
   )
 }
 

@@ -10,7 +10,6 @@ const CheckoutForm = ({ product, token, amount, setPaymentCompleted }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     setPaymentInProgress(true)
-    console.log(event)
 
     // On récupère ici les données bancaires que l'utilisateur rentre
     const cardElement = elements.getElement(CardElement)
@@ -43,7 +42,6 @@ const CheckoutForm = ({ product, token, amount, setPaymentCompleted }) => {
       }
     )
 
-    console.log(response.data)
     // Si la réponse du serveur est favorable, la transaction a eu lieu
     if (response.data.status === 'succeeded') {
       setPaymentCompleted(true)
