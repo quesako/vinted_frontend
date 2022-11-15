@@ -20,12 +20,24 @@ const GridProducts = ({ data, title, showMore }) => {
               {data.offers.map((product) => (
                 <div key={product._id} className="group relative">
                   <div className="h-80 w-full overflow-hidden rounded-md bg-zinc-100 group-hover:opacity-75">
-                    {product.product_pictures.length !== 0 ? (
-                      <img
-                        src={product.product_pictures[0].url}
-                        alt="product"
-                        className="h-full w-full object-cover object-center "
-                      />
+                    {product.product_pictures ? (
+                      <>
+                        {product.product_pictures.length !== 0 ? (
+                          <img
+                            src={product.product_pictures[0].url}
+                            alt="product"
+                            className="h-full w-full object-cover object-center "
+                          />
+                        ) : (
+                          <p
+                            className={
+                              'text-color-body-light flex h-full w-full items-center justify-center text-center'
+                            }
+                          >
+                            Aucun visuel
+                          </p>
+                        )}
+                      </>
                     ) : (
                       <p
                         className={

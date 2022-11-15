@@ -30,19 +30,32 @@ const ProductDetails = ({ data }) => {
     <div className={'container'}>
       <div className="md:pt-12 lg:grid lg:grid-cols-4 lg:items-start lg:gap-x-8">
         <div className="col-span-3 flex flex-col-reverse">
-          {data.product_pictures.length !== 0 ? (
-            <Carousel responsive={options}>
-              {data.product_pictures.map((picture, index) => {
-                return (
-                  <img
-                    key={index}
-                    className={'aspect-[4/3] w-full bg-zinc-200 object-cover'}
-                    src={picture.secure_url}
-                    alt={`Image ${index + 1}  of "${data.product_name}"`}
-                  />
-                )
-              })}
-            </Carousel>
+          {data.product_pictures ? (
+            <>
+              {data.product_pictures.length !== 0 ? (
+                <Carousel responsive={options}>
+                  {data.product_pictures.map((picture, index) => {
+                    return (
+                      <img
+                        key={index}
+                        className={
+                          'aspect-[4/3] w-full bg-zinc-200 object-cover'
+                        }
+                        src={picture.secure_url}
+                        alt={`Image ${index + 1}  of "${data.product_name}"`}
+                      />
+                    )
+                  })}
+                </Carousel>
+              ) : (
+                <div className={'p-4'}>
+                  <p className={'text-color-body-light text-center text-xs'}>
+                    Aucun visuel n'est disponible pour cette offre...Ça pourrait
+                    être une bonne surprise ou pas !
+                  </p>
+                </div>
+              )}
+            </>
           ) : (
             <div className={'p-4'}>
               <p className={'text-color-body-light text-center text-xs'}>

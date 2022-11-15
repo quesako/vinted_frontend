@@ -51,9 +51,7 @@ const HomePage = ({ search }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          'https://lereacteur-vinted-api.herokuapp.com/offers?page=2&limit=12'
-        )
+        const response = await axios.get('http://localhost:4000/offers')
         setMyData(response.data)
         setIsLoadingMyData(false)
       } catch (error) {
@@ -85,14 +83,14 @@ const HomePage = ({ search }) => {
         <Loader></Loader>
       )}
 
-      {!isLoadingMyData ? (
+      {/*{!isLoadingMyData ? (
         <GridProducts
           data={myData}
           title={'Ajoutés récemment (my api)'}
         ></GridProducts>
       ) : (
         <Loader></Loader>
-      )}
+      )}*/}
     </>
   )
 }
